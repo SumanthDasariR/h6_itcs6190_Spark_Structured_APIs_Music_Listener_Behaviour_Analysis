@@ -72,8 +72,8 @@ output/
 - **Output:** `output/avg_listen_time_per_song/`
 
 ### 3. Compute the Genre Loyalty Score
-- **Objective:** For each user, calculate the proportion of plays that belong to their most-listened genre and identify users with a loyalty score > 0.8.  
-- **Approach:** Calculate total plays per user, join with favorite genre play count, compute loyalty score, and filter users with a score > 0.8.  
+- **Objective:** For each user, calculate the proportion of plays that belong to their most-listened genre and identify users with a loyalty score > 0.7.  
+- **Approach:** Calculate total plays per user, join with favorite genre play count, compute loyalty score, and filter users with a score > 0.7.  
 - **Output:** `output/genre_loyalty_scores/`
 
 ### 4. Identify Night Owl Users
