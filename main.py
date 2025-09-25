@@ -54,7 +54,7 @@ avg_listen_time_with_titles.coalesce(1).write.format("csv").option("header", "tr
 # ----------------------------------------------------------------
 ## Task 3: Compute the Genre Loyalty Score for Each User
 # ----------------------------------------------------------------
-# [cite_start]Objective: Calculate the proportion of a user's plays that are their favorite genre and filter for scores > 0.8. [cite: 47, 48]
+# [cite_start]Objective: Calculate the proportion of a user's plays that are their favorite genre and filter for scores > 0.7. [cite: 47, 48]
 print("Processing Task 3: Genre Loyalty Scores...")
 
 # Get the total number of songs played by each user.
@@ -63,9 +63,9 @@ total_plays_per_user = listening_logs_df.groupBy("user_id").agg(count("*").alias
 # Join total plays with the favorite genre counts from Task 1.
 loyalty_df = total_plays_per_user.join(user_favorite_genre, "user_id")
 
-# [cite_start]Calculate the loyalty score and filter for users with a score above 0.8. [cite: 48]
+# [cite_start]Calculate the loyalty score and filter for users with a score above 0.7. [cite: 48]
 genre_loyalty_scores = loyalty_df.withColumn("loyalty_score", col("play_count") / col("total_plays")) \
-    .filter(col("loyalty_score") > 0.8) \
+    .filter(col("loyalty_score") > 0.7) \
     .select("user_id", "genre", "loyalty_score")
 
 genre_loyalty_scores.show()
